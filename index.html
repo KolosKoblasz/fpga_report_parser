@@ -1,27 +1,45 @@
 <!DOCTYPE html>
 <html>
-  	<head>
-    	<meta charset="utf-8">
-    	<title>My FPGA report parser page</title>
-    	<link href="styles/style.css" rel="stylesheet">
-    	<link rel="preconnect" href="https://fonts.gstatic.com">
-		<link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap" rel="stylesheet">
-  	</head>
-  	<body>
-  		<h1> Xilinx FPGA utilization report parser web page </h1>
-    	<img src="images/fpga.jpeg" alt="My test image">
-    	<h2 class="class1">My FPGA is <strong>very</strong> grumpy.</h2>
+    <head>
+      <meta charset="utf-8">
+      <title>My FPGA report parser page</title>
+      <link href="styles/style.css" rel="stylesheet">
+      <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap" rel="stylesheet">
+    </head>
+    <body>
+      <h1> Xilinx FPGA utilization report parser web page </h1>
+      <img src="images/fpga.jpeg" alt="My test image">
+      <h2 class="class1">This site parses your FPGA project's resource utilization report</h2>
 
-    	<p class="class2">This site parses your FPGA project's resource utilization report</p>
+      <p class="class2">First build your project successfuly!</p>
+      <p class="class2">Then drop here your Vivado project's interesting files: </p>
+      <ol>
+        <li>"YourProjectFolder/project<strong>.runs/impl_</strong>n/top<strong>_utilization_placed.rpt</strong>"</li>
+        <li>"YourProjectFolder/project<strong>.runs/impl_</strong>n/top<strong>_timing_summary_routed.rpt</strong>"</li>
+      </ol>
 
-			<ul>
-			  <li>DSP blocks</li>
-			  <li>Memory resources</li>
-			  <li>Registers</li>
-			</ul>
+      <form name="uploadForm">
+        <div>
+          <input type="file" id="input" name="myFiles" multiple>
 
-		<p>if it was compiled by Vivado 2020.2. </p>
-		<button>Change user</button>
-		<script src="scripts/main.js"></script>
-  	</body>
+        </div>
+
+        <div id="file_table"></div>
+
+      </form>
+
+      <button id="parse_button"> Parse files</button>
+      <h2> Build information</h2>
+      <p> You can find basic information about the build here</p>
+      <div id="info_table"></div>
+
+      <h2> Resource utilization</h2>
+      <p> Each column shows a specific FPGA resource category</p>
+      <div id="resource_table"></div>
+
+
+
+    <script src="scripts/main.js"></script>
+    </body>
 </html>
